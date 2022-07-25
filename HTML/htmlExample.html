@@ -2,6 +2,7 @@
 <html>
     <head>
         <title>First HTML Page</title>
+        <link href="../CSS/htmlExampleStyles.css" rel="stylesheet">
     </head>
     <body>
         The <b>bold element</b> is an inline element.
@@ -44,42 +45,51 @@
 
         
         <form>
-            <label for="name-input">Name</label>
-            <input type="text" name="name-input">
-            <br/>
+            <div class="form-element">
+                <label for="name-input">Name</label>
+                <input for="name-input" type="text" name="name-input" placeholder="Enter the name">
+            </div>
             
-            <label for="user-password">Password</label>
-            <input type="password" name="user-password">
-            <br/>
+            <div class="form-element">
+                <label for="user-password">Password</label>
+                <input id="user-password" type="password" name="user-password">
+            </div>
 
-            <label for="subjecty">Math</label>
-            <input type="radio" name="subject">
-            <label for="subject">Science</label>
-            <input type="radio" name="subject">
-            <br/>
+            <div class="form-element">
+                <label for="math-subject">Math</label>
+                <input id="math-subject" type="radio" name="subject">
+                <label for="science-subject">Science</label>
+                <input id="science-subject" type="radio" name="subject">
+            </div>
 
-            <label for="checkbox">Checkbox</label>
-            <input type="checkbox" name="checkbox">
-            <br/>
+            <div class="form-element">
+                <label for="checkbox">Checkbox</label>
+                <input id="checkbox" type="checkbox" name="checkbox">
+            </div>
 
-            <label for="fileselect">Upload File:</label>
-            <input type="file" name="fileselect">
-            <br/>
+            <div class="form-element">
+                <label for="fileselect">Upload File:</label>
+                <input id="fileselect" type="file" name="fileselect">
+            </div>
 
-            <label for="description">Description:</label>
-            <textarea rows="3" cols="100" name="description"></textarea>
-            <br/>
+            <div class="form-element">
+                <label for="description">Description:</label>
+                <textarea id="description" rows="3" cols="100" name="description" required></textarea>
+            </div>
 
-            <label for="country">Country</label>
-            <select name="country">
-                <option value="United States">United States</option>
-                <option value="Canada">Canada</option>
-                <option value="Mexico">Mexico</option>
-            </select>
-            <br/>
+            <div class="form-element">
+                <label for="country">Country</label>
+                <select id="country" name="country">
+                    <option value="United States">United States</option>
+                    <option value="Canada">Canada</option>
+                    <option value="Mexico">Mexico</option>
+                </select>
+            </div>
 
-            <input type="submit" value="Submit">
-            <input type="reset" value="Reset">
+            <div class="form-element">
+                <input type="submit" value="Submit">
+                <input type="reset" value="Cancel">
+            </div>
         </form>
     </body>
 </html>

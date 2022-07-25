@@ -117,13 +117,14 @@
 - we use the `<form>` element to create forms in our page
 - within the form element, we'll use `<input>` elements for each piece of information we want to collect from the user
     - to indicate the kind of information we're collecting, we'll use the `type` attribute of the `<input>` element
-    - `type` can be text, password, radio, checkbox, file, submit, or reset
+    - `type` can be one of many values, including text, password, radio, checkbox, file, submit, or reset
         - text gives a single-line textbox input
         - password gives a textbox input that masks the entered characters using asterisks or periods so that the user can't see the raw value that was entered
         - radio renders a set of radio buttons that a user can select one of
         - checkbox renders a checkbox that the user can select
         - file givews a fileselect box that users can upload a file to, to have it sent to the server
     - whenever we include an `<input>` element in our form, we'll have a `<label>` element before it to give a label to the input
+        - the `for` attribute of the `<label>` element indicates the `id` of the `<input>` element that it's associated with
 - we can also include `<textarea>` element in our form, which will render multiline textbox that can contain newlines
     - we can specify the size of the textarea through the `rows` and `cols` attributes, which determine the number of rows and the number of columns for the textarea, respectively
 - we can create dropdowns through the `<select>` element
@@ -131,3 +132,35 @@
 - to add reset and submit buttons to our form, we'll create input elements with `reset` and `submit` for the type, respectively
 - the `submit` button allows us to send form data to the server
 - the `reset` button will clear the form data
+- to specify where the form data will be sent once the user clicks the `submit` button, we'll set the `action` attribute on the `<form>` element
+    - typically, the value that we'll pass to this attribute will be the URL of the server that will receive the form sumission
+- we can also set the `target` attribute on the form element to specify how the result of the submission will be displayed to the user
+    - this attribute will specify if the result of the submission opens in a new tab, in the same tab, etc.
+- we specify the `name` for the different input elements within our form
+    - oftentimes this will match the `for` attribute of the corresponding `<label>`
+    - but it does not have to
+    - we'll use the name if we're retrieving our elements, e.g. in JavaScript
+- the `value` attribute can be given to an `<input>` element to specify a default value for the input field
+    - if we're working with a `submit` or `reset` `<input>` element, `value` will hold the label of the button
+- the `placeholder` attribute can be given to an `<input>` element to give information about what we're expecting in the input
+    - we can use placeholders for text, password, and other input types
+- the `required` attribute which requires a user to provide a value for an input field before submitting the form
+    - the `required` attribute is a Boolean attribute (meaning that it can have a true or false value)
+    - for Boolean HTML attributes, we can explicitly specify a true or false value
+    - or we can simply include the attribute without a value (meaning true) or exclude the attribute (meaning false)
+- the `min` and `max` attributes which hold a minimum and maximum value, respectively for the input
+    - these attributes can be used for number, range, date, datetime-local, month, time, and week inputs
+
+## HTML Form Validation
+
+- whenever a user submits a form, the data will be sent to the location specified by the `action` attribute on the `<form>` element
+- however, the form will be validated before it's sent
+- this client-side validation comes in two forms - validation based on HTML5 rules and JavaScript validation using JavaScript that we've written
+- validation based on HTML5 rules
+    - any `required` `<input>` elements must have a value
+    - any constraints imposed by `minlength` and `maxlength` attributes (which determine the minimum length and maximum length of an input value, respectively) must be observed
+    - any constraints imposed by `min` and `max` attributes must be observed
+    - the value provided must match the `type` that we've specified for all `<input>` elements
+    - if we've defined a regular expression that the input value must match through the `pattern` attribute on an `<input>` element, that must be matched as well
+- if the form input provided by the user satisfies the validation, it will be submitted
+- if the form input is invalid, it won't be submitted until the user corrects the input and submits again
