@@ -149,7 +149,7 @@ p,.description {
 - border style
     - required
     - determines the line style of the border
-    - can take values includeing `dotted`, `solid`, and `dashed`
+    - can take values including `dotted`, `solid`, and `dashed`
 - border color
     - can be color names (e.g. `black` or `blue`), hexadecimal values prefixed with a hashtag, or the `rgb()` function
     - the `rgb()` function takes comma separated values between 0 and 255 for red, green, and blue
