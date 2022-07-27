@@ -20,9 +20,3 @@ function addEventListeners(capturePhase) {
         console.log('second click event listener on paragraph element');
     }, capturePhase)
 }
-
-console.log(hoistedVariable);
-var hoistedVariable = 'the engine will hoist this variable so we can refer to it before its declaration';
-
-console.log(nonHoistedVariable);
-let nonHoistedVariable = 'this variable is not hoisted';
