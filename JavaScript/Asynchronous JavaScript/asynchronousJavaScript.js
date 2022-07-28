@@ -6,7 +6,7 @@ function timeoutFunctionTwo() {
     console.log(Date.now()/1000);
 }
 
-console.log(Date.now()/1000);
+/*console.log(Date.now()/1000);
 
 setTimeout(timeoutFunctionOne, 1000);
 console.log('timeoutFunctionOne queued at ' + Date.now()/1000);
@@ -19,4 +19,101 @@ let intervalFunc = setInterval(() => {
 
 setTimeout(() => {
     clearInterval(intervalFunc);
-}, 5000);
+}, 5000);*/
+
+/* let myPromise = new Promise((resolve, reject) => {
+    let a = 'string variable';
+    let b = 'string';
+    if(a.includes(b)) {
+        resolve();
+    } else {
+        reject();
+    }
+});
+
+myPromise
+    .then((result) => {
+        console.log('promise executed successfully');
+    })
+    .catch((error) => {
+        console.log('catch caught error returned by rejected promise');
+    })
+    .finally(() => {
+        console.log('the finally callback function runs whenever the promise is settled');
+    })
+    */
+
+let url = 'https://www.balldontlie.io/api/v1/games/38';
+
+function invokeFetchWithHandlerMethods() {
+    const fetchPromise = fetch(url);
+    fetchPromise
+        .then(response => {
+            return response.json();
+        }).then(gameInfo => {
+            console.log(gameInfo);
+        })
+        .catch(error => {
+            console.error(error);
+        });
+}
+
+async function invokeFetchWithAsyncAwait() {
+    const fetchPromise = await fetch(url);
+    let gameInfo = await fetchPromise.json();
+    parseJSON(gameInfo);
+}
+
+function parseJSON(gameInfo) {
+    console.log(gameInfo);
+    let gameDate = new Date(gameInfo.date);
+    let homeTeamName = gameInfo.home_team?.full_name;
+    let awayTeamName = gameInfo.visitor_team.full_name;
+    let homeTeamScore = gameInfo.home_team_score;
+    let awayTeamScore = gameInfo.visitor_team_score;
+
+    if(homeTeamScore > awayTeamScore) {
+        console.log(`${homeTeamName} beat ${awayTeamName} by a score of ${homeTeamScore} to ${awayTeamScore} on ${gameDate}`);
+    } else {
+        console.log(`${awayTeamName} beat ${homeTeamName} by a score of ${awayTeamScore} to ${homeTeamScore} on ${gameDate}`)
+    }
+
+}
+/*
+
+{
+    "id": 38,
+    "date": "2018-10-21 00:00:00 UTC",
+    "home_team": {
+        "id": 8,
+        "abbreviation": "DEN",
+        "city": "Denver",
+        "conference": "West",
+        "division": "Northwest",
+        "full_name": "Denver Nuggets",
+        "name": "Nuggets"
+    },
+    "home_team_score": 100,
+    "period": 4,
+    "postseason": false,
+    "season": 2018,
+    "status": "Final",
+    "time": " ",
+    "visitor_team": {
+        "id": 10,
+        "abbreviation": "GSW",
+        "city": "Golden State",
+        "conference": "West",
+        "division": "Pacific",
+        "full_name": "Golden State Warriors",
+        "name": "Warriors"
+    },
+    "visitor_team_score": 98
+}
+*/
+
+//invokeFetchWithHandlerMethods();
+//console.log('fetch API call invoked');
+
+invokeFetchWithAsyncAwait();
+console.log('fetch API call invoked with async/await');

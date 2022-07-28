@@ -25,8 +25,8 @@ let halfFunc = a => a/2;
 // primitive variables are passed by value to functions, so the value of numOne
 // remains the same (2) after the call to doubleFunc()
 let numOne = 2;
-console.log(doubleFunc(numOne));
-console.log(numOne);
+//console.log(doubleFunc(numOne));
+//console.log(numOne);
 
 // objects are passed by reference to functions
 // i.e. rather than passing a copy of the object, a reference to the memory location
@@ -34,5 +34,43 @@ console.log(numOne);
 // so if we make a change to the properties of an object (like changing the 
 // elements in an array), the changes are made to the original object
 let myArr = [1, 2];
-console.log(doubleArrayElements(myArr));
-console.log(myArr);
+//console.log(doubleArrayElements(myArr));
+//console.log(myArr);
+
+/*
+(function() {
+    console.log('this is an immediately invoked function');
+})();
+
+(() => {
+    console.log('an arrow function that is immediately invoked');
+})();
+
+// closure
+function outerFunction() {
+    let a = 'my string';
+    return function() {
+        console.log(a);
+    }
+}
+
+outerFunction()();
+*/
+
+let parentObject = {
+    logName : function() {
+        console.log(this.name);
+    },
+    name: 'parent object'
+};
+
+function logGlobalObject() {
+    console.log(this);
+}
+
+let childObject = {
+    name: 'child object'
+};
+childObject.__proto__ = parentObject;
+
+console.log(childObject.logName());

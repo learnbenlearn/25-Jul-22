@@ -277,6 +277,40 @@ if(myObject) {
     - so rather than working with a local copy of the variable, the function will be operating on the actual variable
     - if we make changes to the properties of the object, those will be made to the properties of the original variable
 
+### Immmediately Invoked Functions
+
+- when writing an immediately invoked function, we don't declare a function to call later or assign a function to a variable to reference
+- rather, the function executes as soon as the engine reaches the code line that defines it
+- to declare an immediately function, we surround the function expression with parentheses, and then follow the function declaration with another set of parentheses to invoke it
+
+```js
+(function() {
+    console.log('this is an immediately invoked function');
+})();
+```
+
+## Closures
+
+- a closure is a function that can reference the variables declared outside of it whenever it's executed
+- whenever we declare a function in JavaScript, it holds reference to all of the local variables (i.e. all variables declared within the function) and its outer lexical environment (e.g. the variables declared outside of the function definition)
+- all functions in JavaScript are closures
+
+```js
+function outerFunction() {
+    let a = 'my string';
+    return function() {
+        console.log(a);
+    }
+}
+```
+
+## this Keyword
+
+- the `this` keyword refers to the enclosing object
+- we can use the `this` keyword in any function, even if it's not a method of an object
+- if we use `this` in a function that isn't a method of an object, `this` will refer to the global object (in browsers, the global object is the `window`)
+- if we use `this` in a function inside of an object, `this` will refer to the object 'before the dot'
+
 ## Exercise: fizzbuzz
 
 Write a JavaScript function that takes in a single parameter. If the parameter is divisible by 3, return 'fizz'. If the parameter is divisible by 5, return 'buzz'. If the parameter value is divisible by both 3 and 5, return 'fizzbuzz'.
