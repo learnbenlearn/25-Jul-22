@@ -79,38 +79,6 @@ function parseJSON(gameInfo) {
     }
 
 }
-/*
-
-{
-    "id": 38,
-    "date": "2018-10-21 00:00:00 UTC",
-    "home_team": {
-        "id": 8,
-        "abbreviation": "DEN",
-        "city": "Denver",
-        "conference": "West",
-        "division": "Northwest",
-        "full_name": "Denver Nuggets",
-        "name": "Nuggets"
-    },
-    "home_team_score": 100,
-    "period": 4,
-    "postseason": false,
-    "season": 2018,
-    "status": "Final",
-    "time": " ",
-    "visitor_team": {
-        "id": 10,
-        "abbreviation": "GSW",
-        "city": "Golden State",
-        "conference": "West",
-        "division": "Pacific",
-        "full_name": "Golden State Warriors",
-        "name": "Warriors"
-    },
-    "visitor_team_score": 98
-}
-*/
 
 //invokeFetchWithHandlerMethods();
 //console.log('fetch API call invoked');
