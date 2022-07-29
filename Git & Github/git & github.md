@@ -120,3 +120,17 @@
 
 - the `git pull` command both fetches (i.e. downloads) and commits the remote changes to our local repository
 - we need to run `git pull` before we can push to a remote repository if the remote repository has any changes that we don't have locally
+
+## Merge Conflicts
+
+- merge conflicts occur when a file has been modified in both the target and source branches since their last common commit
+- to resolve the conflict, we'll need to choose the changes that we want to keep
+- whenever a merge conflict occurs, it will prevent the merge from happening until it's been resolved
+
+## Pull Requests
+
+- to merge branches on Github, we'll create a pull request
+- after creating a pull request, we'll choose our source branch (the branch that we're pulling changes from) and the target branch (the branch that we're merging the changes into)
+- if there are conflicts, we'll need to resolve them before we can merge the pull request
+- oftentimes, we'll be able to resolve the conflicts on Github
+    - if they're complex, we may need to resolve them locally
